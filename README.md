@@ -1,2 +1,1 @@
-# matrix-accelerator
-Multi-FPGA Matrix Accelerator
+# A Multi FPGA Matrix Acceleration Platform
