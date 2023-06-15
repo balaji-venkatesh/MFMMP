@@ -8,7 +8,7 @@ csim:
 cosim:
 	@rm -rf $(DESIGN)
 	export DO_COSIM=1 && vitis_hls -f $(DESIGN).tcl
-	cat $(DESIGN)/solution1/sim/report/mul_cosim.rpt
+	cat $(DESIGN)/solution1/sim/report/$(DESIGN)_cosim.rpt
 
 clean:
 	rm -rf $(DESIGN)

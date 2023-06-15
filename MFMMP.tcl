@@ -1,4 +1,4 @@
-set project MFMMP_project
+set project MFMMP
 set design MFMMP
 set script_dir [file dirname [file normalize [info script]]]
 open_project $project
