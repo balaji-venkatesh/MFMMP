@@ -1,5 +1,5 @@
 #include "ap_int.h"
-void mul(
+void MFMMP(
     ap_uint<32> &din0,
     ap_uint<32> &din1,
     ap_uint<32> &dout

@@ -1,4 +1,4 @@
-DESIGN=mul_parallel
+DESIGN=MFMMP
 
 csim:
 	@rm -rf $(DESIGN)
