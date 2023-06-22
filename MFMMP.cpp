@@ -2,6 +2,7 @@
 
 void MFMMP(ap_uint<512> &din, ap_uint<32> &dout) {
 
+#pragma HLS pipeline
 #pragma HLS interface axis port = din
 #pragma HLS interface axis port = dout
 #pragma HLS interface ap_ctrl_none port = return // removes start and finish signals - starts when there is data
