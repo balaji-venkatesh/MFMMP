@@ -52,6 +52,18 @@
         "map": "cpp",
         "fstream": "cpp",
         "iomanip": "cpp",
-        "sstream": "cpp"
+        "sstream": "cpp",
+        "bitset": "cpp",
+        "chrono": "cpp",
+        "condition_variable": "cpp",
+        "set": "cpp",
+        "optional": "cpp",
+        "ratio": "cpp",
+        "mutex": "cpp",
+        "semaphore": "cpp",
+        "stop_token": "cpp",
+        "thread": "cpp",
+        "typeindex": "cpp",
+        "variant": "cpp"
     }
 }
