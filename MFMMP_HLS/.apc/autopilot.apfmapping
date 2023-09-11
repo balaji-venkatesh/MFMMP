@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="MFMMP.cpp" path="/home/balaji/MFMMP/MFMMP.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="MFMMP_cnntb.cpp" path="/home/balaji/MFMMP/MFMMP_cnntb.cpp"/>
+    <originFiles name="shared.cpp" path="/home/balaji/MFMMP/util/shared.cpp"/>
+    <originFiles name="shared.h" path="/home/balaji/MFMMP/util/shared.h"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

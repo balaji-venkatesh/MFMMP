@@ -1,11 +1,13 @@
-set project MFMMP
-set design MFMMP
 set script_dir [file dirname [file normalize [info script]]]
-open_project $project
+open_project MFMMP_proj
 open_solution "solution1"
-set_top $design
+set_top MFMMP
+
 add_files MFMMP.cpp 
-add_files -tb ./MFMMP_tb.cpp
+add_files -tb ./MFMMP_cnntb.cpp
+add_files -tb util/shared.cpp
+add_files -tb nn_params
+
 create_clock -period 5 -name default
 if { [info exists ::env(DO_COSIM) ] } {
     set_part  {xcvu9p-flga2104-2-i}

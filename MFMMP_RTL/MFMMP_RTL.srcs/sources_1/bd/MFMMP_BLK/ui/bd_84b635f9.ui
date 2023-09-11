@@ -1,0 +1,31 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.864372",
+   "Default View_TopLeft":"-346,5",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace port pcie_clk -pg 1 -lvl 0 -x 0 -y 300 -defaultsOSRD
+preplace port pci_exp -pg 1 -lvl 3 -x 680 -y 340 -defaultsOSRD
+preplace port port-id_pcie_rst -pg 1 -lvl 0 -x 0 -y 340 -defaultsOSRD
+preplace inst system_ila_0 -pg 1 -lvl 2 -x 500 -y 90 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 1 -x 180 -y 440 -defaultsOSRD
+preplace inst axi_gpio_0 -pg 1 -lvl 2 -x 500 -y 250 -defaultsOSRD
+preplace inst vio_0 -pg 1 -lvl 2 -x 500 -y 410 -defaultsOSRD
+preplace inst easydma_0 -pg 1 -lvl 1 -x 180 -y 300 -defaultsOSRD
+preplace inst MFMMP_0 -pg 1 -lvl 1 -x 180 -y 140 -defaultsOSRD
+preplace netloc axi_gpio_0_gpio2_io_o 1 1 2 350 480 650
+preplace netloc easydma_0_user_clk 1 0 2 20 30 340
+preplace netloc pcie_rst_0_1 1 0 1 50J 320n
+preplace netloc vio_0_probe_out0 1 2 1 660J 240n
+preplace netloc xlconstant_0_dout 1 0 2 30 40 320
+preplace netloc Conn 1 0 2 40 50 310J
+preplace netloc easydma_0_h2c_chan0 1 0 2 50 60 330J
+preplace netloc easydma_0_m_axil 1 1 1 350 230n
+preplace netloc easydma_0_pci_exp 1 1 2 310J 340 NJ
+preplace netloc pcie_clk_0_1 1 0 1 NJ 300
+levelinfo -pg 1 0 180 500 680
+pagesize -pg 1 -db -bbox -sgen -130 0 800 500
+"
+}
+0

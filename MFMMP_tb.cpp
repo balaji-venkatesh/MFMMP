@@ -1,50 +1,84 @@
-#include "ap_int.h"
-#include <cstdlib>
+/* #include <cstdlib>
 #include <iostream>
 
-#define MFMMP_SIZE 8
+#include "ap_int.h"
+#include "hls_stream.h"
+#include "ap_axi_sdata.h"
 
-void MFMMP(ap_uint<512> &din, ap_uint<32> &dout);
+#define MA_SZ 128  // matrix size
+#define NO_SZ 32  // number size
+#define ST_SZ 512 // stream size
+
+typedef hls::axis<ap_int<ST_SZ>, 0, 0, 0> pkt;
+
+void MFMMP(hls::stream<pkt> &to_MFMMP, hls::stream<pkt> &from_MFMMP);
+
+#pragma HLS interface axis port = to_MFMMP
+#pragma HLS interface axis port = from_MFMMP
 
 int main() {
-    
-    ap_uint<512> din;
-    ap_uint<32> dout;
+  
+    pkt to_MFMMP_tmp, from_MFMMP_tmp;
+    hls::stream<pkt> to_MFMMP, from_MFMMP;
     ap_uint<32> expected_output;
+
+    ap_uint<NO_SZ> A [MA_SZ];
+    ap_uint<NO_SZ> B [MA_SZ];
 
     int pass = 1;
 
     for (int i = 0; i < 100; i++) {
 
-        for (int j = 0; j < 16; j++) 
-            din(j * 32 + 31, j * 32) = rand() % 100;
+        std::cout << "============================== TEST " << i << " ==============================\n";
 
-        expected_output = din(31, 0)    * din(287, 256) 
-                        + din(63, 32)   * din(319, 288) 
-                        + din(95, 64)   * din(351, 320) 
-                        + din(127, 96)  * din(383, 352) 
-                        + din(159, 128) * din(415, 384) 
-                        + din(191, 160) * din(447, 416) 
-                        + din(223, 192) * din(479, 448) 
-                        + din(255, 224) * din(511, 480);
-
-        MFMMP(din, dout);
-
-        if (dout != expected_output) {
-            std::cout << "Test failed at iteration " << i << "\n"
-                      << "A: (" << din(31, 0)    << "," << din(63, 32)   << "," << din(95, 64)   << "," << din(127, 96)  << ","
-                                << din(159, 128) << "," << din(191, 160) << "," << din(223, 192) << "," << din(255, 224) << ")\n"
-                      << "B: (" << din(287, 256) << "," << din(319, 288) << "," << din(351, 320) << "," << din(383, 352) << ","
-                                << din(415, 384) << "," << din(447, 416) << "," << din(479, 448) << "," << din(511, 480) << ")\n" 
-                      << "output : (" << (dout(31, 0)) << ")\n"
-                      << "expected : (" << (expected_output(31, 0)) << ")\n";
-            pass = 0;
-            break;
+        // randomize and calculate sum of products
+        expected_output = 0;
+        for (int j = 0; j < MA_SZ; j++){
+            A[j] = rand() % 128;
+            B[j] = rand() % 128;
+            expected_output = expected_output + A[j] * B[j];
         }
+
+        // read in data for matrix A
+        std::cout << "A:";
+        for (int j = 0; j < MA_SZ; j++){
+            int k = j % (ST_SZ / NO_SZ / 2);
+            to_MFMMP_tmp.data(k * 32 + 31, k * 32) = A[j];
+            std::cout << "\t" << A[j];
+            if(k == 7){
+                to_MFMMP.write(to_MFMMP_tmp);
+                std::cout << "\n";
+            }
+        }
+        // read in data for matrix B
+        std::cout << "B:";
+        for (int j = 0; j < MA_SZ; j++){
+            int k = j % (ST_SZ / NO_SZ / 2);
+            to_MFMMP_tmp.data(k * 32 + 31, k * 32) = B[j];
+            std::cout << "\t" << B[j];
+            if(k == 7){
+                to_MFMMP.write(to_MFMMP_tmp);
+                std::cout << "\n";
+            }
+        }
+
+        MFMMP(to_MFMMP, from_MFMMP);
+
+        from_MFMMP.read(from_MFMMP_tmp);
+        std::cout << "OUT:" << "\t" << from_MFMMP_tmp.data << "\n";
+        std::cout << "EXP:" << "\t" << expected_output << "\n";
+
+        if (from_MFMMP_tmp.data != expected_output)
+            pass = 0;
     }
 
+    std::cout << "==============================  DONE  ==============================\n";
+
     if (pass)
-        std::cout << "Success: results match" << std::endl;
+        std::cout << "ALL RESULTS MATCH\n\n";
+    else
+        std::cout << "SEE ERRORS ABOVE\n\n";
 
     return 0;
 }
+ */
