@@ -1,0 +1,291 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x304968346E9CABE7",
+      "device": "xcu200-fsgd2104-2-e",
+      "gen_directory": "../../../../MFMMP_RTL.gen/sources_1/bd/MFMMP_BLK",
+      "name": "MFMMP_BLK",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2023.1",
+      "validated": "true"
+    },
+    "design_tree": {
+      "system_ila_0": "",
+      "xlconstant_0": "",
+      "axi_gpio_0": "",
+      "vio_0": "",
+      "easydma_0": "",
+      "MFMMP_0": ""
+    },
+    "interface_ports": {
+      "pcie_clk": {
+        "mode": "Slave",
+        "vlnv_bus_definition": "xilinx.com:interface:diff_clock:1.0",
+        "vlnv": "xilinx.com:interface:diff_clock_rtl:1.0",
+        "parameters": {
+          "CAN_DEBUG": {
+            "value": "false",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          }
+        },
+        "port_maps": {
+          "CLK_P": {
+            "physical_name": "pcie_clk_clk_p",
+            "direction": "I"
+          },
+          "CLK_N": {
+            "physical_name": "pcie_clk_clk_n",
+            "direction": "I"
+          }
+        }
+      },
+      "pci_exp": {
+        "mode": "Master",
+        "vlnv_bus_definition": "xilinx.com:interface:pcie_7x_mgt:1.0",
+        "vlnv": "xilinx.com:interface:pcie_7x_mgt_rtl:1.0",
+        "port_maps": {
+          "txn": {
+            "physical_name": "pci_exp_txn",
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "rxn": {
+            "physical_name": "pci_exp_rxn",
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "txp": {
+            "physical_name": "pci_exp_txp",
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "rxp": {
+            "physical_name": "pci_exp_rxp",
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      }
+    },
+    "ports": {
+      "pcie_rst": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
+      }
+    },
+    "components": {
+      "system_ila_0": {
+        "vlnv": "xilinx.com:ip:system_ila:1.1",
+        "xci_name": "MFMMP_BLK_system_ila_0_0",
+        "xci_path": "ip/MFMMP_BLK_system_ila_0_0/MFMMP_BLK_system_ila_0_0.xci",
+        "inst_hier_path": "system_ila_0",
+        "parameters": {
+          "C_NUM_MONITOR_SLOTS": {
+            "value": "2"
+          },
+          "C_SLOT": {
+            "value": "1"
+          },
+          "C_SLOT_0_INTF_TYPE": {
+            "value": "xilinx.com:interface:axis_rtl:1.0"
+          },
+          "C_SLOT_1_INTF_TYPE": {
+            "value": "xilinx.com:interface:axis_rtl:1.0"
+          }
+        },
+        "interface_ports": {
+          "SLOT_0_AXIS": {
+            "mode": "Monitor",
+            "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+            "vlnv": "xilinx.com:interface:axis_rtl:1.0"
+          },
+          "SLOT_1_AXIS": {
+            "mode": "Monitor",
+            "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+            "vlnv": "xilinx.com:interface:axis_rtl:1.0"
+          }
+        }
+      },
+      "xlconstant_0": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "MFMMP_BLK_xlconstant_0_0",
+        "xci_path": "ip/MFMMP_BLK_xlconstant_0_0/MFMMP_BLK_xlconstant_0_0.xci",
+        "inst_hier_path": "xlconstant_0"
+      },
+      "axi_gpio_0": {
+        "vlnv": "xilinx.com:ip:axi_gpio:2.0",
+        "xci_name": "MFMMP_BLK_axi_gpio_0_0",
+        "xci_path": "ip/MFMMP_BLK_axi_gpio_0_0/MFMMP_BLK_axi_gpio_0_0.xci",
+        "inst_hier_path": "axi_gpio_0",
+        "parameters": {
+          "C_ALL_INPUTS": {
+            "value": "1"
+          },
+          "C_ALL_INPUTS_2": {
+            "value": "0"
+          },
+          "C_ALL_OUTPUTS_2": {
+            "value": "1"
+          },
+          "C_IS_DUAL": {
+            "value": "1"
+          }
+        }
+      },
+      "vio_0": {
+        "vlnv": "xilinx.com:ip:vio:3.0",
+        "xci_name": "MFMMP_BLK_vio_0_0",
+        "xci_path": "ip/MFMMP_BLK_vio_0_0/MFMMP_BLK_vio_0_0.xci",
+        "inst_hier_path": "vio_0",
+        "parameters": {
+          "C_NUM_PROBE_IN": {
+            "value": "1"
+          },
+          "C_NUM_PROBE_OUT": {
+            "value": "1"
+          },
+          "C_PROBE_OUT0_WIDTH": {
+            "value": "32"
+          }
+        }
+      },
+      "easydma_0": {
+        "vlnv": "clarkshen.com:user:easydma:1.0",
+        "xci_name": "MFMMP_BLK_easydma_0_1",
+        "xci_path": "ip/MFMMP_BLK_easydma_0_1/MFMMP_BLK_easydma_0_1.xci",
+        "inst_hier_path": "easydma_0",
+        "interface_ports": {
+          "m_axil": {
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
+            "mode": "Master",
+            "address_space_ref": "m_axil",
+            "base_address": {
+              "minimum": "0x00000000",
+              "maximum": "0xFFFFFFFF",
+              "width": "32"
+            }
+          }
+        },
+        "addressing": {
+          "address_spaces": {
+            "m_axil": {
+              "range": "4G",
+              "width": "32"
+            }
+          }
+        }
+      },
+      "MFMMP_0": {
+        "vlnv": "xilinx.com:hls:MFMMP:1.0",
+        "xci_name": "MFMMP_BLK_MFMMP_0_0",
+        "xci_path": "ip/MFMMP_BLK_MFMMP_0_0/MFMMP_BLK_MFMMP_0_0.xci",
+        "inst_hier_path": "MFMMP_0"
+      }
+    },
+    "interface_nets": {
+      "Conn": {
+        "interface_ports": [
+          "easydma_0/c2h_chan0",
+          "MFMMP_0/dout",
+          "system_ila_0/SLOT_1_AXIS"
+        ]
+      },
+      "easydma_0_h2c_chan0": {
+        "interface_ports": [
+          "easydma_0/h2c_chan0",
+          "MFMMP_0/din",
+          "system_ila_0/SLOT_0_AXIS"
+        ]
+      },
+      "easydma_0_m_axil": {
+        "interface_ports": [
+          "easydma_0/m_axil",
+          "axi_gpio_0/S_AXI"
+        ]
+      },
+      "easydma_0_pci_exp": {
+        "interface_ports": [
+          "pci_exp",
+          "easydma_0/pci_exp"
+        ]
+      },
+      "pcie_clk_0_1": {
+        "interface_ports": [
+          "pcie_clk",
+          "easydma_0/pcie_clk"
+        ]
+      }
+    },
+    "nets": {
+      "axi_gpio_0_gpio2_io_o": {
+        "ports": [
+          "axi_gpio_0/gpio2_io_o",
+          "vio_0/probe_in0"
+        ]
+      },
+      "easydma_0_user_clk": {
+        "ports": [
+          "easydma_0/user_clk",
+          "system_ila_0/clk",
+          "axi_gpio_0/s_axi_aclk",
+          "vio_0/clk",
+          "MFMMP_0/ap_clk"
+        ]
+      },
+      "pcie_rst_0_1": {
+        "ports": [
+          "pcie_rst",
+          "easydma_0/pcie_rst"
+        ]
+      },
+      "vio_0_probe_out0": {
+        "ports": [
+          "vio_0/probe_out0",
+          "axi_gpio_0/gpio_io_i"
+        ]
+      },
+      "xlconstant_0_dout": {
+        "ports": [
+          "xlconstant_0/dout",
+          "system_ila_0/resetn",
+          "axi_gpio_0/s_axi_aresetn",
+          "MFMMP_0/ap_rst_n"
+        ]
+      }
+    },
+    "addressing": {
+      "/easydma_0": {
+        "address_spaces": {
+          "m_axil": {
+            "segments": {
+              "SEG_axi_gpio_0_Reg": {
+                "address_block": "/axi_gpio_0/S_AXI/Reg",
+                "offset": "0x00000000",
+                "range": "4G"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
